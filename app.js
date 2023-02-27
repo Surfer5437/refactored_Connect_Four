@@ -1,26 +1,25 @@
-const addGameBtn = document.querySelector('#addGame');
-addGameBtn.addEventListener('click', addGame());
+const addGameBtn = document.querySelector('#addGame').addEventListener('click', addGame());
 
 
 function addGame(){
     const countGames = document.querySelectorAll(`[id*='board']`).length;
     const body = document.querySelector('body');
-    const newGame =document.createElement('table');
-    var newGridLogicalBoard = new Array(6);
+    const newGame = document.createElement('table');
+    const newBoard = Array(6).fill(Array(7));
 
-for (var i = 0; i < newGridLogicalBoard.length; i++) {
-    newGridLogicalBoard[i]= new Array(7)
-    for (let arr of newGridLogicalBoard[i]) {
-        arr='undefined';
-        
+    localStorage.setItem(`board${countGames}`, newBoard);
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 7; j++) {
+            
+    const newSlot = document.createElement('div');
+           newSlot.id=`board${countGames}${i}${j}`;
+                newSlot.classList.add('slot');
+                newGame.append(newSlot);
     }
-}
-console.log(newGridLogicalBoard);
-   
-    newGame.dataset.logicalBoard=newGridLogicalBoard;
+    }
     newGame.classList.add('board');
     newGame.id=`board${countGames}`;
     newGame.style.backgroundColor="blue";
-
     body.append(newGame);
 }
+

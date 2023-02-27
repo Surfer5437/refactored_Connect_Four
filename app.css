@@ -7,6 +7,9 @@
     display: inline-block;
     border: 2px solid white;
 }
+button {
+    position: relative;
+}
 #winner {
     font-style: italic;
     text-align: center;
@@ -26,10 +29,10 @@ h1{
 }
 .board{
     position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-    width: 400px;
+   top: 50%;
+   left:50%;
+   transform: translate( -50%);  
+    width: 420px;
     height:auto;
     background-color: blue;
     text-align: center;
