@@ -1,0 +1,40 @@
+.slot{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+    display: inline-block;
+    border: 2px solid white;
+}
+#winner {
+    font-style: italic;
+    text-align: center;
+    color: red;
+}
+h1{
+    text-align: center;
+    padding-top: 5%;
+}
+.played {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    border: 2px solid white;
+}
+.board{
+    position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    width: 400px;
+    height:auto;
+    background-color: blue;
+    text-align: center;
+    padding: 25px 5px 0 5px;
+}
+.slot:hover{
+    border: 2px dashed yellow ;
+}
