@@ -7,10 +7,15 @@
     display: inline-block;
     border: 2px solid white;
 }
+.centered{
+    font-style: bold italic;
+    text-align: center;
+   
+}
 button {
     position: relative;
 }
-#winner {
+.winner {
     font-style: italic;
     text-align: center;
     color: red;
@@ -40,4 +45,7 @@ h1{
 }
 .slot:hover{
     border: 2px dashed yellow ;
+}
+body{
+    width: 100vw;
 }
