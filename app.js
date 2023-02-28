@@ -46,54 +46,56 @@ function slotClicked(e) {
     const i = ++firstChar;
     if (gameList.games[boardNum].gameWon == 'false' && !e.target.classList.contains('played')) {
 
-        switch(e.target.id.charAt(1)){
+        switch (e.target.id.charAt(1)) {
             case '0':
-                if(e.target.id.charAt(0) == gameList.games[boardNum].a){
+                if (e.target.id.charAt(0) == gameList.games[boardNum].a) {
                     gameList.games[boardNum].a--;
-                    play(e,boardNum,firstChar,lastChar);
+                    play(e, boardNum, firstChar, lastChar);
                 }
                 break;
-                case '1':
-                if(e.target.id.charAt(0) == gameList.games[boardNum].b){
+            case '1':
+                if (e.target.id.charAt(0) == gameList.games[boardNum].b) {
                     gameList.games[boardNum].b--;
-                    play(e,boardNum,firstChar,lastChar);
+                    play(e, boardNum, firstChar, lastChar);
                 }
                 break;
-                case '2':
-                if(e.target.id.charAt(0) == gameList.games[boardNum].c){
+            case '2':
+                if (e.target.id.charAt(0) == gameList.games[boardNum].c) {
                     gameList.games[boardNum].c--;
-                    play(e,boardNum,firstChar,lastChar);
+                    play(e, boardNum, firstChar, lastChar);
                 }
                 break;
-                case '3':
-                if(e.target.id.charAt(0) == gameList.games[boardNum].d){
+            case '3':
+                if (e.target.id.charAt(0) == gameList.games[boardNum].d) {
                     gameList.games[boardNum].d--;
-                    play(e,boardNum,firstChar,lastChar);
+                    play(e, boardNum, firstChar, lastChar);
                 }
                 break;
-                case '4':
-                if(e.target.id.charAt(0) == gameList.games[boardNum].e){
+            case '4':
+                if (e.target.id.charAt(0) == gameList.games[boardNum].e) {
                     gameList.games[boardNum].e--;
-                    play(e,boardNum,firstChar,lastChar);
+                    play(e, boardNum, firstChar, lastChar);
                 }
                 break;
-                case '5':
-                if(e.target.id.charAt(0) == gameList.games[boardNum].f){
+            case '5':
+                if (e.target.id.charAt(0) == gameList.games[boardNum].f) {
                     gameList.games[boardNum].f--;
-                    play(e,boardNum,firstChar,lastChar);
+                    play(e, boardNum, firstChar, lastChar);
                 }
                 break;
-                case '6':
-                if(e.target.id.charAt(0) == gameList.games[boardNum].g){
+            case '6':
+                if (e.target.id.charAt(0) == gameList.games[boardNum].g) {
                     gameList.games[boardNum].g--;
-                    play(e,boardNum,firstChar,lastChar);
+                    play(e, boardNum, firstChar, lastChar);
                 }
                 break;
 
         }
-                    
-}}
-function play(e,boardNum,firstChar,lastChar){
+
+    }
+}
+
+function play(e, boardNum, firstChar, lastChar) {
     e.target.classList.remove('slot');
     e.target.classList.add('played');
     e.target.style.backgroundColor = gameList.games[boardNum][gameList.games[boardNum].curPlayer];
@@ -123,13 +125,13 @@ class ConnectFour {
         this.player1 = 'red';
         this.player2 = 'blue';
         this.playernone = 'black';
-        this.a='5';
-        this.b='5';
-        this.c='5';
-        this.d='5';
-        this.e='5';
-        this.f='5';
-        this.g='5';
+        this.a = '5';
+        this.b = '5';
+        this.c = '5';
+        this.d = '5';
+        this.e = '5';
+        this.f = '5';
+        this.g = '5';
     }
 }
 
@@ -152,18 +154,6 @@ function checkWinner(board, winningHeader, boardNum) {
     for (let j = 0; j < 3; j++) {
         for (let i = 0; i < 7; i++) {
             if (board[j][i] != 'undefined' && board[j][i] === board[j + 1][i] && board[j + 1][i] === board[j + 2][i] && board[j + 2][i] === board[j + 3][i]) {
-               const winningPiece1=document.getElementById(`${j}${i}`);
-               const winningPiece2=document.getElementById(`${j+1}${i}`);
-               const winningPiece3=document.getElementById(`${j+2}${i}`);
-               const winningPiece4=document.getElementById(`${j+3}${i}`);
-               winningPiece1.style.boxShadow='0px 0px 40px 20px #0ff';
-               winningPiece2.style.boxShadow='0px 0px 40px 20px #0ff';
-               winningPiece3.style.boxShadow='0px 0px 40px 20px #0ff';
-               winningPiece4.style.boxShadow='0px 0px 40px 20px #0ff';
-                // board[j][i]
-                // board[j+1][i]
-                // board[j][i]
-                // board[j][i]
                 const capWinner = board[j][i].toUpperCase();
                 winningHeader.style.color = board[j][i];
                 winningHeader.innerText = `${capWinner} IS THE WINNER!!!!`
@@ -176,14 +166,6 @@ function checkWinner(board, winningHeader, boardNum) {
         const grid = board[colu];
         for (let i = 0; i < 4; i++) {
             if (grid[i] !== 'undefined' && grid[i] === grid[i + 1] && grid[i + 1] === grid[i + 2] && grid[i + 2] === grid[i + 3]) {
-                const winningPiece1=document.getElementById(`${colu}${i}`);
-                const winningPiece2=document.getElementById(`${colu}${i+1}`);
-                const winningPiece3=document.getElementById(`${colu}${i+2}`);
-                const winningPiece4=document.getElementById(`${colu}${i+3}`);
-                winningPiece1.style.boxShadow='0px 0px 40px 20px #0ff';
-                winningPiece2.style.boxShadow='0px 0px 40px 20px #0ff';
-                winningPiece3.style.boxShadow='0px 0px 40px 20px #0ff';
-                winningPiece4.style.boxShadow='0px 0px 40px 20px #0ff';
                 const capWinner = grid[i].toUpperCase();
                 winningHeader.style.color = grid[i];
                 winningHeader.innerText = `${capWinner} IS THE WINNER!!!!`
@@ -195,15 +177,7 @@ function checkWinner(board, winningHeader, boardNum) {
     for (let j = 0; j < 3; j++) {
         for (let i = 0; i < 4; i++) {
             if (board[j][i] !== 'undefined' && board[j][i] === board[j + 1][i + 1] && board[j + 1][i + 1] === board[j + 2][i + 2] && board[j + 2][i + 2] === board[j + 3][i + 3]) {
-                const winningPiece1=document.getElementById(`${j}${i}`);
-                const winningPiece2=document.getElementById(`${j+1}${i+1}`);
-                const winningPiece3=document.getElementById(`${j+2}${i+2}`);
-                const winningPiece4=document.getElementById(`${j+3}${i+3}`);
-                winningPiece1.style.boxShadow='0px 0px 40px 20px #0ff';
-                winningPiece2.style.boxShadow='0px 0px 40px 20px #0ff';
-                winningPiece3.style.boxShadow='0px 0px 40px 20px #0ff';
-                winningPiece4.style.boxShadow='0px 0px 40px 20px #0ff';
-                const capWinner = board[j][i].toUpperCase();
+               const capWinner = board[j][i].toUpperCase();
                 winningHeader.style.color = board[j][i];
                 winningHeader.innerText = `${capWinner} IS THE WINNER!!!!`
                 winnerFunc(boardNum)
@@ -217,14 +191,6 @@ function checkWinner(board, winningHeader, boardNum) {
                 board[j][i] === board[j - 1][i + 1] &&
                 board[j - 1][i + 1] === board[j - 2][i + 2] &&
                 board[j - 2][i + 2] === board[j - 3][i + 3]) {
-                const winningPiece1=document.getElementById(`${j}${i}`);
-                const winningPiece2=document.getElementById(`${j-1}${i+1}`);
-                const winningPiece3=document.getElementById(`${j-2}${i+2}`);
-                const winningPiece4=document.getElementById(`${j-3}${i+3}`);
-                winningPiece1.style.boxShadow='0px 0px 40px 20px #0ff';
-                winningPiece2.style.boxShadow='0px 0px 40px 20px #0ff';
-                winningPiece3.style.boxShadow='0px 0px 40px 20px #0ff';
-                winningPiece4.style.boxShadow='0px 0px 40px 20px #0ff';
                 const capWinner = board[j][i].toUpperCase();
                 winningHeader.style.color = board[j][i];
                 winningHeader.innerText = `${capWinner} IS THE WINNER!!!!`
@@ -234,12 +200,13 @@ function checkWinner(board, winningHeader, boardNum) {
     }
 
 }
-function winnerFunc(boardNum){
-    gameList.games[boardNum].g='9';
-    gameList.games[boardNum].f='9';
-    gameList.games[boardNum].e='9';
-    gameList.games[boardNum].d='9';
-    gameList.games[boardNum].c='9';
-    gameList.games[boardNum].b='9';
-    gameList.games[boardNum].a='9';
+
+function winnerFunc(boardNum) {
+    gameList.games[boardNum].g = '9';
+    gameList.games[boardNum].f = '9';
+    gameList.games[boardNum].e = '9';
+    gameList.games[boardNum].d = '9';
+    gameList.games[boardNum].c = '9';
+    gameList.games[boardNum].b = '9';
+    gameList.games[boardNum].a = '9';
 }
